@@ -1,0 +1,16 @@
+version: '3.8'
+
+services:
+
+  ghost:
+    image: ghosttest
+    ports:
+      - 2368:2368
+    environment:
+      - NODE_ENV=development # Having this as `development` lets you play around without setting up a real DB
+      - AWS_ACCESS_KEY_ID=<DO_SPACE_KEY_ID_HERE>
+      - AWS_SECRET_ACCESS_KEY=<DO_SPACE_KEY_HERE>
+      - GHOST_STORAGE_ADAPTER_S3_ENDPOINT=sfo3.digitaloceanspaces.com # Get from the DO console
+      - GHOST_STORAGE_ADAPTER_S3_ASSET_HOST=https://dospacetest.sfo3.cdn.digitaloceanspaces.com # Should be https://<NAME_OF_SPACE>.<GHOST_STORAGE_ADAPTER_S3_ENDPOINT>
+      # - GHOST_STORAGE_ADAPTER_S3_PATH_PREFIX=prefix # Name of top level "folder" that ghost will create, defaults to current year (i.e. 2022)
+      - GHOST_STORAGE_ADAPTER_S3_FORCE_PATH_STYLE=true
