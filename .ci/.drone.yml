@@ -9,7 +9,9 @@ steps:
     settings:
       registry: registry.digitalocean.com/unfrl/unfrl-ghost
       repo: registry.digitalocean.com/unfrl/unfrl-ghost
-      tags: "${DRONE_COMMIT_SHA}"
+      tags:
+        - latest
+        - "${DRONE_COMMIT_SHA}"
       dockerfile: dockerfile
       cache_from: "registry.digitalocean.com/unfrl/unfrl-ghost:latest"
       username:
