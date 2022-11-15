@@ -1,0 +1,18 @@
+kind: pipeline
+type: kubernetes
+name: unfrl-ghost
+
+steps:
+
+  - name: docker-builder
+    image: plugins/docker
+    settings:
+      registry: registry.digitalocean.com/unfrl/unfrl-ghost
+      repo: registry.digitalocean.com/unfrl/unfrl-ghost
+      tags: "${DRONE_COMMIT_SHA}"
+      dockerfile: dockerfile
+      cache_from: "registry.digitalocean.com/unfrl/unfrl-ghost:latest"
+      username:
+        from_secret: DRONE_DO_ACCESS_TOKEN
+      password:
+        from_secret: DRONE_DO_ACCESS_TOKEN
