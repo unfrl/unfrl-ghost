@@ -7,14 +7,13 @@ steps:
   - name: docker-builder
     image: plugins/docker
     settings:
-      registry: registry.digitalocean.com/unfrl/unfrl-ghost
-      repo: registry.digitalocean.com/unfrl/unfrl-ghost
+      repo: unfrl/unfrl-ghost
       tags:
         - latest
         - "${DRONE_COMMIT_SHA}"
       dockerfile: dockerfile
-      cache_from: "registry.digitalocean.com/unfrl/unfrl-ghost:latest"
+      cache_from: "unfrl/unfrl-ghost:latest"
       username:
-        from_secret: DRONE_DO_ACCESS_TOKEN
+        from_secret: docker_username
       password:
-        from_secret: DRONE_DO_ACCESS_TOKEN
+        from_secret: docker_password

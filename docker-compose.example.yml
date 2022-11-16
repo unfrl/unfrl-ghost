@@ -3,7 +3,7 @@ version: '3.8'
 services:
 
   ghost:
-    image: ghosttest
+    image: unfrl/unfrl-ghost
     ports:
       - 2368:2368
     environment:
